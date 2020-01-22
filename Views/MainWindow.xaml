@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:Smash64MovsetTool.ViewModels;assembly=Smash64MovsetTool"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Smash64MovsetTool.Views.MainWindow"
+        Icon="/Assets/logo.ico"
+        Title="Smash64MovsetTool">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid>
+        <Grid Height="590">
+            <StackPanel Width="300" HorizontalAlignment="Left" Margin="10">
+                <TextBox AcceptsReturn="True" Height="250" TextWrapping="Wrap" Watermark="Input text" Text="{Binding InputText}" />    
+            </StackPanel> 
+        </Grid>
+
+        <StackPanel Width="300" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+            <TextBox AcceptsReturn="True" Height="250" TextWrapping="Wrap" Watermark="Output text" Text="{Binding OutputText}" />
+        </StackPanel>
+
+        <Grid Height="250">
+            <StackPanel HorizontalAlignment="Right">
+                <Button Width="142" Click="CodeHexButtonClick">Convert Code to Hex</Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Height="500">
+            <StackPanel HorizontalAlignment="Right">
+                <Button Width="142" Click="HexCodeButtonClick">Convert Hex to Code</Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel Background="Gray" Height="20" VerticalAlignment="Top">
+            <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="_File">
+                        <MenuItem Header="Import" Click="ImportClick"/>
+                        <Separator/>
+                        <MenuItem Header="Export" Click="ExportClick"/>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>    
+        </StackPanel>
+    </Grid>
+</Window>
